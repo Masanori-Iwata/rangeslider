@@ -1,0 +1,27 @@
+{
+  "name": "rangeSlider.js",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "babel-plugin-add-header-comment": "^1.0.3",
+    "babel-plugin-transform-es2015-modules-umd": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "remove-html-comments": "^1.0.2",
+    "rimraf": "^2.6.1",
+    "uglify-js": "^2.8.18"
+  },
+  "scripts": {
+    "clean": "rimraf dist/*.map",
+    "create:babel": "babel js/rangeSlider.babel.js --out-file dist/rangeSlider.js",
+    "create:uglifyjs": "uglifyjs dist/rangeSlider.js -o dist/rangeSlider.min.js --comments /MIT/",
+    "remove:comment": "remove-html-comments index.html example.html",
+    "watch:babel": "babel --watch js/rangeSlider.babel.js --out-file dist/rangeSlider.js --source-maps",
+    "watch:sass": "sass --watch sass/rangeSlider.scss:dist/rangeSlider.css --style expanded --sourcemap=none",
+    "create": "npm run create:babel & npm run create:uglifyjs",
+    "remove": "npm run remove:comment",
+    "watch": "npm run watch:babel & npm run watch:sass",
+    "build": "npm run clean & npm run create & npm run remove"
+  }
+}

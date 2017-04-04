@@ -1,0 +1,16 @@
+{
+  "presets": [ "es2015" ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-es2015-modules-umd",
+    [ "add-header-comment", {
+      "header": [
+        "rangeSlider.js v1.0.0",
+        "",
+        "© 2016 - 2017 MASANORI IWATA <info@masanoriiwata.jp>",
+        "Released under the MIT license",
+        "http://opensource.org/licenses/mit-license.php"
+      ]
+    } ]
+  ]
+}

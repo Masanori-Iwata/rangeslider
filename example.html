@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+  <html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>rangeSlider.js | PRIVATE WORKS | MASANORI IWATA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <meta name="description" content="rangeSlider.js is a simple slider plugin.">
+    <meta name="keywords" content="range slider,slider plugin,no jquery,javascript">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="common/css/common.css">
+    <link rel="stylesheet" href="common/css/private-works.css">
+
+    <link rel="apple-touch-icon" href="http://www.masanoriiwata.jp/img_masanoriiwata.png" />
+    <link rel="shortcut icon" href="http://www.masanoriiwata.jp/favicon.ico" />
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-96021121-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <link rel="stylesheet" href="dist/rangeSlider.css">
+    <script src="dist/rangeSlider.js"></script>
+    <style>
+
+      .range-slider__container {
+        margin-top: 90px;
+        margin-bottom: 100px;
+      }
+
+      .symbol-box+.range-slider__container {
+        margin-top: 0;
+      }
+
+      .example .symbol-box+.range-slider__container {
+        margin-bottom:  0;
+      }
+
+      /* smartphone style */
+      @media screen and ( max-width: 600px ) {
+
+        .range-slider__container {
+          margin-top: 50px;
+          margin-bottom: 60px;
+        }
+
+      }
+
+    </style>
+
+  </head>
+  <body class="private-works child">
+
+    
+
+    <main class="main">
+      <header class="main-header">
+        <h1 class="main-header__title">rangeSlider.js</h1>
+      </header>
+      <div class="entries">
+        <div class="inner-wrap">
+
+          <div class="symbol-wrap">
+            <figure class="symbol-box">
+              <img src="img/img_retro-mario_01.png" alt="" id="mario">
+            </figure>
+
+            <div class="range-slider__container">
+              <div id="range-slider__bar" class="range-slider__bar range-slider__bar--style_01"></div>
+              <div id="range-slider__handle" class="range-slider__handle range-slider__handle--style_01">
+                <div class="range-slider__handle__item"></div>
+              </div>
+              <div id="range-slider" class="range-slider__handle-area"></div>
+            </div>
+
+
+          </div>
+          <p class="fork-me-on-github"><a href="https://github.com/Masanori-Iwata/rangeslider" target="_blank">Fork me on GitHub</a></p>
+
+          <script>
+
+            var elem = document.getElementById( 'mario' );
+
+            var rangeSlider = new RangeSlider( {
+              startPosition: 20,
+
+              onChanged: function( px, pct ) {
+
+                elem.style.width = pct + '%';
+
+              }
+
+            } );
+
+          </script>
+
+          <section class="features inner-block">
+            <h2 class="title">Features</h2>
+            <div class="wrap">
+              <ul class="list">
+                <li>Simple and fast</li>
+                <li>Supports touch devices</li>
+                <li>Responsive designs</li>
+                <li>Use Babel</li>
+                <li>No jQuery</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="options inner-block">
+            <h2 class="title">Options</h2>
+            <p class="description">List including all options.</p>
+            <div class="wrap">
+              <h3>sliderId</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>String</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>'range-slider'</code><td>
+                </tr>
+              </table>
+              <h3>handleId</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>String</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>'range-slider__handle'</code><td>
+                </tr>
+              </table>
+              <h3>barId</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>String</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>'range-slider__bar'</code><td>
+                </tr>
+              </table>
+              <h3>startPosition</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>Number</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>0</code><td>
+                </tr>
+              </table>
+              <h3>scaleDimension</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>Number</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>1</code><td>
+                </tr>
+              </table>
+              <h3>handleDefaultPos</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>Number</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>-7</code><td>
+                </tr>
+              </table>
+              <h3>onDrag</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>Function</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>null</code><td>
+                </tr>
+              </table>
+              <h3>onDragging</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>Function</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>null</code><td>
+                </tr>
+              </table>
+              <h3>onDragged</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>Function</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>null</code><td>
+                </tr>
+              </table>
+              <h3>onChanged</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>Function</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>null</code><td>
+                </tr>
+              </table>
+              <h3>onRefreshed</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>Function</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>null</code><td>
+                </tr>
+              </table>
+              <h3>onInitialized</h3>
+              <table>
+                <tr>
+                  <th>Type</th>
+                  <td>: <code>Function</code></td>
+                </tr>
+                <tr>
+                  <th>Default</th>
+                  <td>: <code>null</code><td>
+                </tr>
+              </table>
+            </div>
+          </section>
+
+          <section class="events inner-block">
+            <h2 class="title">Events</h2>
+            <p class="description">Confirm the operation of the callback function.</p>
+            <div class="symbol-wrap">
+              <div class="range-slider__container">
+                <div id="events__bar" class="range-slider__bar range-slider__bar--style_01"></div>
+                <div id="events__handle" class="range-slider__handle range-slider__handle--style_01">
+                  <div class="range-slider__handle__item"></div>
+                </div>
+                <div id="events" class="range-slider__handle-area"></div>
+              </div>
+            </div>
+
+            <div class="wrap">
+              <table>
+                <tr>
+                  <th>onDrag</th>
+                  <td>: <code  id="drag-value">on</code></td>
+                </tr>
+                <tr>
+                  <th>onDragging</th>
+                  <td>: <code  id="dragging-value">on</code></td>
+                </tr>
+                <tr>
+                  <th>onDragged</th>
+                  <td>: <code  id="draged-value">on</code></td>
+                </tr>
+                <tr>
+                  <th>onChanged</th>
+                  <td>: <code  id="changed-value">on</code></td>
+                </tr>
+                <tr>
+                  <th>onRefreshed</th>
+                  <td>: <code  id="refreshed-value">on</code></td>
+                </tr>
+                <tr>
+                  <th>onInitialized</th>
+                  <td>: <code  id="init-value">on</code></td>
+                </tr>
+              </table>
+            </div>
+
+            <script>
+              var events = new RangeSlider( {
+                sliderId: 'events',
+                handleId: 'events__handle',
+                barId   : 'events__bar',
+
+                onDrag: function( px, pct ) {
+
+                  on( document.getElementById( 'drag-value' ) );
+
+                },
+                onDragging: function( px, pct ) {
+
+                  on( document.getElementById( 'dragging-value' ) );
+
+                },
+                onDragged: function( px, pct ) {
+
+                  on( document.getElementById( 'draged-value' ) );
+
+                },
+                onChanged: function( px, pct ) {
+
+                  on( document.getElementById( 'changed-value' ) );
+
+                },
+                onRefreshed: function( px, pct ) {
+
+                  on( document.getElementById( 'refreshed-value' ) );
+
+                },
+                onInitialized: function( px, pct ) {
+
+                  on( document.getElementById( 'init-value' ) );
+
+                }
+
+              } );
+
+              function on( elem ) {
+
+                elem.classList.add( 'on' );
+
+                clearTimeout( elem.timer );
+                elem.timer = setTimeout( function() {
+
+                  elem.classList.remove( 'on' );
+
+                }, 500 );
+
+              }
+
+            </script>
+          </section>
+
+          <section class="example inner-block">
+            <h2 class="title">Example</h2>
+            <p class="description">As a weather slider.</p>
+            <div class="symbol-wrap">
+              <figure class="symbol-box">
+                <img src="img/img_info_01.png" id="weather" width="60">
+              </figure>
+
+              <div class="range-slider__container">
+                <div id="weather-slider__bar" class="range-slider__bar range-slider__bar--style_02"></div>
+                <div id="weather-slider__handle" class="range-slider__handle range-slider__handle--style_02">
+                  <div class="range-slider__handle__item"></div>
+                </div>
+                <div id="weather-slider" class="range-slider__handle-area"></div>
+                <div id="weather-slider__scale" class="range-slider__scale">
+                  <div id="range-slider__scale__item-0" style="left:0%" class="range-slider__scale__item"></div>
+                  <div id="range-slider__scale__item-1" style="left:12.5%" class="range-slider__scale__item"></div>
+                  <div id="range-slider__scale__item-2" style="left:25%" class="range-slider__scale__item"></div>
+                  <div id="range-slider__scale__item-3" style="left:37.5%" class="range-slider__scale__item"></div>
+                  <div id="range-slider__scale__item-4" style="left:50%" class="range-slider__scale__item"></div>
+                  <div id="range-slider__scale__item-5" style="left:62.5%" class="range-slider__scale__item"></div>
+                  <div id="range-slider__scale__item-6" style="left:75%" class="range-slider__scale__item"></div>
+                  <div id="range-slider__scale__item-7" style="left:87.5%" class="range-slider__scale__item"></div>
+                  <div id="range-slider__scale__item-8" style="left:100%" class="range-slider__scale__item"></div>
+                </div>
+                <div class="range-slider__timezone">
+                  <div class="range-slider__timezone__item">03:00</div>
+                  <div class="range-slider__timezone__item">09:00</div>
+                  <div class="range-slider__timezone__item">15:00</div>
+                  <div class="range-slider__timezone__item">21:00</div>
+                </div>
+              </div>
+
+            </div>
+
+            <script>
+
+              var imagesLoaded = {};
+              var images = {
+                sun   : 'img/img_sun_01.png',
+                rain  : 'img/img_rain_01.png',
+                cloud1: 'img/img_cloud_01.png',
+                cloud2: 'img/img_cloud_02.png'
+              };
+
+              ( function( state, images ) {
+
+                for ( var i = images.length; i--; ) ( function( i ) {
+
+                  var img = new Image();
+                  state[ images[ i ] ] = false;
+                  img.onload = function load() {
+
+                    state[ images[ i ] ] = true;
+
+                  };
+
+                  img.src = images[ i ];
+
+                } )( i );
+
+              } )( imagesLoaded, Object.keys( images ).map( function( key ) {return images[ key ]} ) );
+
+              var weathers = {
+                0   : images.rain,
+                12.5: images.cloud1,
+                25  : images.cloud2,
+                37.5: images.sun,
+                50  : images.sun,
+                62.5: images.sun,
+                75  : images.sun,
+                87.5: images.cloud1,
+                100 : images.cloud1
+              };
+
+              var weatherIcon = function weatherIcon( px, pct ) {
+
+                var elem = document.getElementById( 'weather' );
+                var loadedCheck = function() {
+
+                  if ( imagesLoaded[ weathers[ pct ] ] ) {
+
+                    elem.src = weathers[ pct ];
+                    clearInterval( weatherIcon.timers[ weathers[ pct ] ] );
+                    weatherIcon.timers[ weathers[ pct ] ] = null;
+                    return;
+
+                  }
+
+                };
+
+                if ( !weatherIcon.timers ) weatherIcon.timers = {};
+                if ( !weatherIcon.timers[ weathers[ pct ] ] ) weatherIcon.timers[ weathers[ pct ] ] = null;
+
+                for ( var key in weatherIcon.timers ) {
+
+                  if ( weatherIcon.timers[ key ] ) {
+
+                    clearInterval( weatherIcon.timers[ key ] );
+
+                  }
+
+                }
+
+                if ( imagesLoaded[ weathers[ pct ] ] ) {
+
+                  elem.src = weathers[ pct ];
+                  return;
+
+                }
+
+                elem.src = 'img/img_info_01.png';
+
+                weatherIcon.timers[ weathers[ pct ] ] = setInterval( loadedCheck, 150 );
+
+              };
+
+              var example1 = new RangeSlider( {
+                sliderId      : 'weather-slider',
+                handleId      : 'weather-slider__handle',
+                barId         : 'weather-slider__bar',
+                scaleDimension: 12.5,
+                onChanged     : weatherIcon,
+                onInitialized : weatherIcon
+              } );
+
+            </script>
+          </section>
+
+          
+          
+
+        </div>
+      </div>
+    </main>
+
+    
+
+  </body>
+  </html>

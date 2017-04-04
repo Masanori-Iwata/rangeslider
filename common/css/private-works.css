@@ -1,0 +1,128 @@
+code {
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  padding: 0 5px;
+  height: 25px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.plugin {
+  margin-top: 90px;
+  margin-bottom: 100px;
+}
+
+.fork-me-on-github {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.symbol-wrap {
+  width: 250px;
+  margin: 0 auto;
+}
+.symbol-wrap img {
+  max-width: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.symbol-wrap .symbol-box {
+  position: relative;
+  text-align: center;
+  height: 250px;
+}
+
+.list li {
+  list-style: disc;
+  list-style-position: outside;
+  margin-left: 1.1em;
+}
+
+.inner-block {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}
+.inner-block h2 {
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.54);
+}
+.inner-block h3 {
+  font-weight: 700;
+}
+.inner-block .description {
+  margin-bottom: 40px;
+  border-left: 3px solid #ff5252;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+table {
+  margin-bottom: 15px;
+}
+table:nth-last-child(1) {
+  margin-bottom: 0 !important;
+}
+table th {
+  text-align: left;
+  padding-right: 5px;
+}
+
+.options table {
+  margin-bottom: 30px;
+}
+.options table th, .options table td {
+  font-size: 12px;
+  padding-bottom: 7px;
+}
+
+.events code {
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.events code.on {
+  background-color: #4CAF50;
+  color: #fff;
+  border-color: #4CAF50;
+}
+.events table tr:last-child th, .events table tr:last-child td {
+  padding-bottom: 0;
+}
+.events table th, .events table td {
+  padding-bottom: 15px;
+}
+
+@media screen and (max-width: 600px) {
+  .plugin {
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+
+  .inner-block {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+  .inner-block h2 {
+    margin-bottom: 20px;
+  }
+  .inner-block .description {
+    margin-bottom: 20px;
+  }
+
+  table {
+    margin-bottom: 10px;
+  }
+
+  .options table {
+    margin-bottom: 15px;
+  }
+}
