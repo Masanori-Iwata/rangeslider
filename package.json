@@ -8,6 +8,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.22.0",
+    "npm-run-all": "^4.0.2",
     "remove-html-comments": "^1.0.2",
     "rimraf": "^2.6.1",
     "uglify-js": "^2.8.18"
@@ -19,9 +20,9 @@
     "remove:comment": "remove-html-comments index.html example.html",
     "watch:babel": "babel --watch js/rangeSlider.babel.js --out-file dist/rangeSlider.js --source-maps",
     "watch:sass": "sass --watch sass/rangeSlider.scss:dist/rangeSlider.css --style expanded --sourcemap=none",
-    "create": "npm run create:babel & npm run create:uglifyjs",
-    "remove": "npm run remove:comment",
-    "watch": "npm run watch:babel & npm run watch:sass",
-    "build": "npm run clean & npm run create & npm run remove"
+    "create": "npm-run-all create:*",
+    "remove": "npm-run-all remove:*",
+    "watch": "npm-run-all -p watch*",
+    "build": "npm-run-all clean create remove"
   }
 }
